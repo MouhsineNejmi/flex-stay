@@ -1,0 +1,9 @@
+{
+  "name": "flex-stay-web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/flex-stay-web",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project flex-stay-web --web",
+  "targets": {}
+}
