@@ -1,0 +1,45 @@
+services:
+  user-db:
+    container_name: flexstay-user-db
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: flexstay-user-db
+    ports:
+      - 5432:5432
+    volumes:
+      - user_db:/var/lib/postgresql/data
+
+  users-service:
+    tty: true
+    container_name: users-service
+    build:
+      context: .
+      dockerfile: ./apps/flex-stay-ms/users-service/Dockerfile
+    ports:
+      - 8001:8001
+    environment:
+      PORT: 8001
+      DB_URI: postgresql://admin:admin@localhost:5432/flexstay-user-db
+    depends_on:
+      - user-db
+
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   container_name: flexstay-pgadmin
+  #   restart: always
+  #   ports:
+  #     - 8888:80
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: nejmimouhsine@flexstay.com
+  #     PGADMIN_DEFAULT_PASSWORD: flexstay/nejmimouhsine
+  #   volumes:
+  #     - pgadmin:/var/lib/pgadmin
+  #   depends_on:
+  #     - postgres
+
+volumes:
+  user_db:
+  pgadmin:
