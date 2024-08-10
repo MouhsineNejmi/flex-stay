@@ -47,6 +47,22 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
+      },
+      "exclude": [
+        "apps/flex-stay-ms-e2e/**/*",
+        "apps/flex-stay-ms/authentication-service-e2e/**/*",
+        "apps/flex-stay-ms/reservations-service-e2e/**/*",
+        "apps/flex-stay-ms/users-service-e2e/**/*",
+        "apps/flex-stay-ms/listings-service-e2e/**/*",
+        "apps/flex-stay-ms/gateway-service-e2e/**/*"
+      ]
+    },
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview"
       }
     }
   ],

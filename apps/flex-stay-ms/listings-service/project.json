@@ -1,0 +1,26 @@
+{
+  "name": "flex-stay-ms-listings-service",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/flex-stay-ms/listings-service/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "flex-stay-ms-listings-service:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "flex-stay-ms-listings-service:build:development"
+        },
+        "production": {
+          "buildTarget": "flex-stay-ms-listings-service:build:production"
+        }
+      }
+    }
+  }
+}
