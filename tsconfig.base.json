@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@flex-stay/shared-types": ["libs/shared-types/src/index.ts"]
+      "@flex-stay/shared-types": ["libs/shared-types/src/index.ts"],
+      "@flex-stay/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
