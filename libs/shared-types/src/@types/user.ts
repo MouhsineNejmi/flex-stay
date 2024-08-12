@@ -1,11 +1,15 @@
+import { Prisma, UserRole } from '@prisma/client';
+
 export interface User {
   id: string;
   username: string;
   email: string;
-  emailVerified: boolean;
+  isEmailVerified: boolean;
   image: string;
   password: string;
-  role: string;
+  role: UserRole;
   createdAt: Date;
   updatedAt: Date;
 }
+
+export type GetUserInput = Prisma.UserWhereUniqueInput;
