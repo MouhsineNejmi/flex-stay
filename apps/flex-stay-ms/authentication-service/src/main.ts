@@ -1,15 +1,21 @@
 import express from 'express';
 import * as path from 'path';
+import cookieParser from 'cookie-parser';
+import { HandleErrorWithLogger } from '@flex-stay/utils';
+
+import routes from './routes';
 
 const app = express();
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use(cookieParser());
+app.use(express.json());
 
-app.get('/health', (req, res) => {
-  res.send({ message: 'Welcome to flex-stay-ms-authentication-service!' });
-});
+app.use('/', routes);
 
-const port = process.env.PORT || 8002;
+app.use(HandleErrorWithLogger);
+
+const port = 8002;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });

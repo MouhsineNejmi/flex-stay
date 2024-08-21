@@ -4,11 +4,11 @@ import proxy from 'express-http-proxy';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-app.use('/api/auth', proxy('http://localhost:8001'));
-app.use('/api/users', proxy('http://localhost:8002'));
+app.use('/api/users', proxy('http://localhost:8001'));
+app.use('/api/auth', proxy('http://localhost:8002'));
 app.use('/api/listings', proxy('http://localhost:8003'));
 app.use('/api/reservations', proxy('http://localhost:8003'));
 

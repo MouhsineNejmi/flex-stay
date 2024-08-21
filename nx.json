@@ -52,7 +52,6 @@
         "apps/flex-stay-ms-e2e/**/*",
         "apps/flex-stay-ms/authentication-service-e2e/**/*",
         "apps/flex-stay-ms/reservations-service-e2e/**/*",
-        "apps/flex-stay-ms/users-service-e2e/**/*",
         "apps/flex-stay-ms/listings-service-e2e/**/*",
         "apps/flex-stay-ms/gateway-service-e2e/**/*"
       ]
@@ -72,6 +71,16 @@
         "style": "tailwind",
         "linter": "eslint"
       }
+    },
+    "@nx/react": {
+      "library": {}
+    }
+  },
+  "targetDefaults": {
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   }
 }
