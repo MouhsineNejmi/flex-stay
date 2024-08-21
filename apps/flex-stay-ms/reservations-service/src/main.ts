@@ -9,7 +9,7 @@ app.get('/health', (req, res) => {
   res.send({ message: 'Welcome to flex-stay-ms-reservations-service!' });
 });
 
-const port = process.env.PORT || 8004;
+const port = process.env.PORT || 8003;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
