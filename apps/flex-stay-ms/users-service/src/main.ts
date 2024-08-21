@@ -15,7 +15,7 @@ app.use('/', routes);
 
 app.use(HandleErrorWithLogger);
 
-const port = 8002;
+const port = 8001;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
