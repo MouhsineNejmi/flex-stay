@@ -39,7 +39,5 @@ export const updateUserSchema = object({
 });
 
 export type CreateUserInput = TypeOf<typeof createUserSchema>['body'];
-
 export type UpdateUserInput = TypeOf<typeof updateUserSchema>['body'];
-
 export type LoginUserInput = TypeOf<typeof loginUserSchema>['body'];
