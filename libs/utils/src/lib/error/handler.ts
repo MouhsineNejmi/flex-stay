@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import { NotFoundError, ValidationError, AuthorizeError } from './errors';
 import { logger } from '../logger';
@@ -6,7 +6,8 @@ import { logger } from '../logger';
 export const HandleErrorWithLogger = (
   error: Error,
   req: Request,
-  res: Response
+  res: Response,
+  next: NextFunction
 ) => {
   let reportError = true;
   let status = 500;
@@ -27,5 +28,5 @@ export const HandleErrorWithLogger = (
     logger.warn(error); // ignore common errors caused by user
   }
 
-  res.status(status).json(data);
+  return res.status(status).json(data);
 };
